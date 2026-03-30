@@ -6,7 +6,7 @@ import './Preview.css';
 
 function Preview({ content, style }) {
   return (
-    <div className="preview" style={style}>
+    <div id="preview" className="preview" style={style}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}

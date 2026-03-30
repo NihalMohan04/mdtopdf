@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Editor } from './components/Editor';
 import { Preview } from './components/Preview';
 import { ThemeSelector } from './components/ThemeSelector';
+import { DownloadButton } from './components/DownloadButton';
 import './App.css';
 
 function App() {
@@ -33,12 +34,15 @@ console.log(greeting);
     <div className={`app theme-${theme}`}>
       <header className="app-header">
         <h1>mdToPDF</h1>
-        <ThemeSelector
-          currentTheme={theme}
-          currentFont={font}
-          onThemeChange={setTheme}
-          onFontChange={setFont}
-        />
+        <div className="header-controls">
+          <DownloadButton content={markdown} />
+          <ThemeSelector
+            currentTheme={theme}
+            currentFont={font}
+            onThemeChange={setTheme}
+            onFontChange={setFont}
+          />
+        </div>
       </header>
       <div className="container">
         <Editor content={markdown} onContentChange={setMarkdown} />

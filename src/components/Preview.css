@@ -1,10 +1,44 @@
 .preview {
   height: 100%;
   overflow-y: auto;
-  padding: var(--spacing-md, 1rem);
-  background: var(--color-bg, #ffffff);
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-md, 0.375rem);
+  padding: var(--spacing-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.preview.pdf-export {
+  border: none;
+  box-shadow: none;
+  background: white;
+}
+
+.preview::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.preview::-webkit-scrollbar-track {
+  background: var(--color-bg-muted);
+  border-radius: 4px;
+}
+
+.preview::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.preview::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+.preview > *:first-child {
+  margin-top: 0;
+}
+
+.preview > *:last-child {
+  margin-bottom: 0;
 }
 
 .preview h1,
@@ -17,17 +51,24 @@
   margin-bottom: 0.5em;
   font-weight: 600;
   line-height: 1.25;
+  color: var(--color-text);
+}
+
+.preview h1:first-child,
+.preview h2:first-child,
+.preview h3:first-child {
+  margin-top: 0;
 }
 
 .preview h1 {
   font-size: 2em;
-  border-bottom: 1px solid var(--color-border, #e5e7eb);
-  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.4em;
 }
 
 .preview h2 {
   font-size: 1.5em;
-  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 0.3em;
 }
 
@@ -35,9 +76,13 @@
   font-size: 1.25em;
 }
 
+.preview h4 {
+  font-size: 1em;
+}
+
 .preview p {
   margin: 1em 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .preview ul,
@@ -47,75 +92,124 @@
 }
 
 .preview li {
-  margin: 0.5em 0;
+  margin: 0.4em 0;
+  line-height: 1.5;
+}
+
+.preview li > ul,
+.preview li > ol {
+  margin: 0.25em 0;
 }
 
 .preview blockquote {
   margin: 1em 0;
-  padding: 0.5em 1em;
-  border-left: 4px solid var(--color-primary, #3b82f6);
-  background: var(--color-bg-muted, #f9fafb);
-  color: var(--color-text-muted, #6b7280);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-bg-muted);
+  color: var(--color-text-muted);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.preview blockquote p {
+  margin: 0.5em 0;
 }
 
 .preview code {
-  font-family: 'Fira Code', 'Monaco', monospace;
-  font-size: 0.9em;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.875em;
   padding: 0.2em 0.4em;
-  background: var(--color-code-bg, #f3f4f6);
+  background: var(--color-code-bg);
   border-radius: 3px;
+  color: var(--color-text);
 }
 
 .preview pre {
   margin: 1em 0;
-  padding: 1em;
+  padding: var(--spacing-md);
   overflow-x: auto;
-  background: var(--color-code-bg, #f6f8fa);
-  border-radius: var(--radius-md, 0.375rem);
+  background: var(--color-code-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
 
 .preview pre code {
   padding: 0;
   background: none;
+  font-size: 0.85em;
+  line-height: 1.5;
 }
 
 .preview table {
   width: 100%;
   margin: 1em 0;
   border-collapse: collapse;
+  border-spacing: 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.preview thead {
+  border-bottom: 2px solid var(--color-border);
 }
 
 .preview th,
 .preview td {
-  padding: 0.75em;
-  border: 1px solid var(--color-border, #e5e7eb);
+  padding: 0.75em 1em;
+  border: none;
+  text-align: left;
 }
 
 .preview th {
-  background: var(--color-bg-muted, #f9fafb);
+  background: var(--color-bg-muted);
   font-weight: 600;
+  color: var(--color-text);
+}
+
+.preview tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preview tbody tr:last-child {
+  border-bottom: none;
+}
+
+.preview tbody tr:hover {
+  background: var(--color-bg-muted);
 }
 
 .preview img {
   max-width: 100%;
   height: auto;
+  border-radius: var(--radius-sm);
+  margin: 1em 0;
 }
 
 .preview a {
-  color: var(--color-primary, #3b82f6);
+  color: var(--color-primary);
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
 }
 
 .preview a:hover {
-  text-decoration: underline;
+  border-bottom-color: var(--color-primary);
 }
 
 .preview hr {
   margin: 2em 0;
   border: none;
-  border-top: 1px solid var(--color-border, #e5e7eb);
+  border-top: 1px solid var(--color-border);
 }
 
 .preview input[type="checkbox"] {
   margin-right: 0.5em;
+  accent-color: var(--color-primary);
+}
+
+.preview strong {
+  font-weight: 600;
+}
+
+.preview em {
+  font-style: italic;
 }

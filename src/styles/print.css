@@ -1,0 +1,58 @@
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .hljs {
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .preview {
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .preview pre {
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+
+  .preview table {
+    page-break-inside: avoid;
+  }
+
+  .preview img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  .preview h1,
+  .preview h2,
+  .preview h3 {
+    page-break-after: avoid;
+  }
+
+  .preview a {
+    color: inherit !important;
+    text-decoration: underline;
+  }
+
+  .preview a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
