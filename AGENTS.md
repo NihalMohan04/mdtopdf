@@ -168,16 +168,16 @@ Check the `/plans/` directory to see all available plans. Plans are executed in 
 
 | Order | Plan | Status |
 |-------|------|--------|
-| 1 | `2026-03-29_project-init.md` | Pending |
-| 2 | `2026-03-29_editor-component.md` | Pending |
-| 3 | `2026-03-29_preview-component.md` | Pending |
-| 4 | `2026-03-29_theme-selector.md` | Pending |
-| 5 | `2026-03-29_pdf-download.md` | Pending |
-| 6 | `2026-03-29_styling-themes.md` | Pending |
-| 7 | `2026-03-29_main-app.md` | Pending |
-| 8 | `2026-03-29_deployment.md` | Pending |
-| 9 | `2026-03-29_testing.md` | Pending |
-| 10 | `2026-03-29_polish-documentation.md` | Pending |
+| 1 | `2026-03-29_project-init.md` | Done |
+| 2 | `2026-03-29_editor-component.md` | Done |
+| 3 | `2026-03-29_preview-component.md` | Done |
+| 4 | `2026-03-29_theme-selector.md` | Done |
+| 5 | `2026-03-29_pdf-download.md` | Done |
+| 6 | `2026-03-29_styling-themes.md` | Done |
+| 7 | `2026-03-29_main-app.md` | Done |
+| 8 | `2026-03-29_deployment.md` | Done |
+| 9 | `2026-03-29_testing.md` | Skipped (V1) |
+| 10 | `2026-03-29_polish-documentation.md` | Done |
 
 ---
 
