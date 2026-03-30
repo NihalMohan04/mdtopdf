@@ -60,7 +60,7 @@ function App() {
       <header className="app-header">
         <h1>mdToPDF</h1>
         <div className="header-controls">
-          <DownloadButton content={markdown} />
+          <DownloadButton content={markdown} font={font} />
           <ThemeSelector
             currentTheme={theme}
             currentFont={font}
