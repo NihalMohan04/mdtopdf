@@ -9,21 +9,21 @@ const themes = [
 ];
 
 const fonts = [
-  'Roboto',
-  'Open Sans',
-  'Lato',
-  'Merriweather',
-  'Source Code Pro',
+  { family: 'Inter', category: 'sans-serif' },
+  { family: 'Geist', category: 'sans-serif' },
+  { family: 'Merriweather', category: 'serif' },
+  { family: 'Lora', category: 'serif' },
+  { family: 'JetBrains Mono', category: 'monospace' },
+  { family: 'Fira Code', category: 'monospace' },
 ];
 
 function ThemeSelector({ currentTheme, currentFont, onThemeChange, onFontChange }) {
   useEffect(() => {
-    fonts.forEach((font) => {
-      const link = document.createElement('link');
-      link.href = `https://fonts.googleapis.com/css2?family=${font.replace(/ /g, '+')}:wght@400;600&display=swap`;
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
-    });
+    const fontUrl = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Fira+Code:wght@400;500;600&display=swap';
+    const link = document.createElement('link');
+    link.href = fontUrl;
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
   }, []);
 
   return (
@@ -52,8 +52,8 @@ function ThemeSelector({ currentTheme, currentFont, onThemeChange, onFontChange 
           aria-label="Select font"
         >
           {fonts.map((f) => (
-            <option key={f} value={f}>
-              {f}
+            <option key={f.family} value={f.family}>
+              {f.family}
             </option>
           ))}
         </select>

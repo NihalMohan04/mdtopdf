@@ -23,7 +23,16 @@ function DownloadButton({ content, filename = 'document.pdf' }) {
           className="download-button"
           aria-label="Download PDF file"
         >
-          {({ loading }) => (loading ? 'Generating...' : 'Download PDF')}
+          {({ loading }) =>
+            loading ? (
+              <span className="download-loading">
+                <span className="spinner" />
+                Generating...
+              </span>
+            ) : (
+              'Download PDF'
+            )
+          }
         </PDFDownloadLink>
       )}
     </div>

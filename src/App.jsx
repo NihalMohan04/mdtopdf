@@ -39,8 +39,9 @@ function App() {
     return localStorage.getItem(STORAGE_KEY_THEME) || 'classic';
   });
   const [font, setFont] = useState(() => {
-    return localStorage.getItem(STORAGE_KEY_FONT) || 'Roboto';
+    return localStorage.getItem(STORAGE_KEY_FONT) || 'Inter';
   });
+  const [activeTab, setActiveTab] = useState('editor');
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY_CONTENT, markdown);
@@ -68,9 +69,27 @@ function App() {
           />
         </div>
       </header>
+      <nav className="mobile-tab-bar">
+        <button
+          className={`tab-button ${activeTab === 'editor' ? 'active' : ''}`}
+          onClick={() => setActiveTab('editor')}
+        >
+          Write
+        </button>
+        <button
+          className={`tab-button ${activeTab === 'preview' ? 'active' : ''}`}
+          onClick={() => setActiveTab('preview')}
+        >
+          Preview
+        </button>
+      </nav>
       <div className="container">
-        <Editor content={markdown} onContentChange={setMarkdown} />
-        <Preview content={markdown} style={{ fontFamily: font }} />
+        <div className={`pane editor-pane ${activeTab === 'editor' ? 'active' : ''}`}>
+          <Editor content={markdown} onContentChange={setMarkdown} />
+        </div>
+        <div className={`pane preview-pane ${activeTab === 'preview' ? 'active' : ''}`}>
+          <Preview content={markdown} style={{ fontFamily: font }} />
+        </div>
       </div>
     </div>
   );
