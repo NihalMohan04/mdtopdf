@@ -4,9 +4,9 @@ import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github.css';
 import './Preview.css';
 
-function Preview({ content }) {
+function Preview({ content, style }) {
   return (
-    <div className="preview">
+    <div className="preview" style={style}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
