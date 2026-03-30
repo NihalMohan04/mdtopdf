@@ -29,13 +29,18 @@ function Editor({ content, onContentChange }) {
   };
 
   return (
-    <div className="editor">
+    <div className="editor" role="region" aria-label="Markdown editor">
       <div className="editor-header">
         <label className="file-upload">
-          <input type="file" accept=".md" onChange={handleFileUpload} />
+          <input 
+            type="file" 
+            accept=".md" 
+            onChange={handleFileUpload}
+            aria-label="Upload Markdown file"
+          />
           <span>Upload .md file</span>
         </label>
-        {error && <span className="error-message">{error}</span>}
+        {error && <span className="error-message" role="alert">{error}</span>}
       </div>
       <textarea
         className="editor-textarea"
@@ -45,6 +50,7 @@ function Editor({ content, onContentChange }) {
           onContentChange(e.target.value);
         }}
         placeholder="Enter or paste your Markdown here..."
+        aria-label="Markdown content"
       />
     </div>
   );

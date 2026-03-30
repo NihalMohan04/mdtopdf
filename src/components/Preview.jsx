@@ -6,7 +6,7 @@ import './Preview.css';
 
 function Preview({ content, style }) {
   return (
-    <div id="preview" className="preview" style={style}>
+    <div id="preview" className="preview" style={style} role="region" aria-label="Markdown preview">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}

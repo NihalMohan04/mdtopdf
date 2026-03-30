@@ -12,6 +12,7 @@ function DownloadButton({ content, filename = 'document.pdf' }) {
         <button
           className="download-button"
           onClick={() => setIsReady(true)}
+          aria-label="Prepare PDF download"
         >
           Download PDF
         </button>
@@ -20,6 +21,7 @@ function DownloadButton({ content, filename = 'document.pdf' }) {
           document={<MarkdownToPdf content={content} />}
           fileName={filename}
           className="download-button"
+          aria-label="Download PDF file"
         >
           {({ loading }) => (loading ? 'Generating...' : 'Download PDF')}
         </PDFDownloadLink>

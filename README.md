@@ -1,16 +1,67 @@
-# React + Vite
+# mdToPDF
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A client-side React application for converting Markdown to PDF with live preview.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Live Markdown Preview** - Real-time rendering as you type
+- **GitHub Flavored Markdown** - Tables, task lists, strikethrough, and more
+- **Code Syntax Highlighting** - Beautiful code blocks with highlight.js
+- **Multiple Themes** - Classic, Modern, Dark, and Sepia
+- **Custom Fonts** - Roboto, Open Sans, Lato, Merriweather, Source Code Pro
+- **PDF Export** - Selectable text, proper formatting
+- **Local Storage** - Your work persists across sessions
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Start development server
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+## Usage
+
+1. Enter or paste Markdown in the editor (left panel)
+2. Or upload a `.md` file using the upload button
+3. Choose a theme and font from the dropdowns
+4. Preview updates in real-time (right panel)
+5. Click "Download PDF" to export
+
+## Tech Stack
+
+- **React 19** - UI framework
+- **Vite** - Build tool
+- **react-markdown** - Markdown rendering
+- **remark-gfm** - GitHub Flavored Markdown
+- **rehype-highlight** - Code highlighting
+- **@react-pdf/renderer** - PDF generation
+- **highlight.js** - Syntax highlighting styles
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Editor.jsx        # Markdown input
+│   ├── Preview.jsx       # Live preview
+│   ├── ThemeSelector.jsx # Theme/font selection
+│   ├── DownloadButton.jsx # PDF export
+│   └── MarkdownToPdf.jsx # PDF renderer
+├── styles/
+│   └── print.css         # Print-specific styles
+├── App.jsx               # Main component
+└── main.jsx              # Entry point
+```
+
+## License
+
+MIT

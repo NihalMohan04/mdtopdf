@@ -27,13 +27,14 @@ function ThemeSelector({ currentTheme, currentFont, onThemeChange, onFontChange 
   }, []);
 
   return (
-    <div className="theme-selector">
+    <div className="theme-selector" role="group" aria-label="Theme and font selection">
       <div className="selector-group">
         <label htmlFor="theme-select">Theme</label>
         <select
           id="theme-select"
           value={currentTheme}
           onChange={(e) => onThemeChange(e.target.value)}
+          aria-label="Select theme"
         >
           {themes.map((t) => (
             <option key={t.id} value={t.id}>
@@ -48,6 +49,7 @@ function ThemeSelector({ currentTheme, currentFont, onThemeChange, onFontChange 
           id="font-select"
           value={currentFont}
           onChange={(e) => onFontChange(e.target.value)}
+          aria-label="Select font"
         >
           {fonts.map((f) => (
             <option key={f} value={f}>
