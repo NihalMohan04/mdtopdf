@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Editor } from './components/Editor';
 import { Preview } from './components/Preview';
 import { ThemeSelector } from './components/ThemeSelector';
 import { DownloadButton } from './components/DownloadButton';
 import './App.css';
 
-function App() {
-  const [markdown, setMarkdown] = useState(`# Welcome to mdToPDF
+const STORAGE_KEY_CONTENT = 'mdtopdf-content';
+const STORAGE_KEY_THEME = 'mdtopdf-theme';
+const STORAGE_KEY_FONT = 'mdtopdf-font';
+
+const DEFAULT_CONTENT = `# Welcome to mdToPDF
 
 This is a **markdown** preview.
 
@@ -25,10 +28,31 @@ console.log(greeting);
 |---------|--------|
 | Editor | Done |
 | Preview | Done |
-| PDF Export | Pending |
-`);
-  const [theme, setTheme] = useState('classic');
-  const [font, setFont] = useState('Roboto');
+| PDF Export | Done |
+`;
+
+function App() {
+  const [markdown, setMarkdown] = useState(() => {
+    return localStorage.getItem(STORAGE_KEY_CONTENT) || DEFAULT_CONTENT;
+  });
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem(STORAGE_KEY_THEME) || 'classic';
+  });
+  const [font, setFont] = useState(() => {
+    return localStorage.getItem(STORAGE_KEY_FONT) || 'Roboto';
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_CONTENT, markdown);
+  }, [markdown]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_THEME, theme);
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY_FONT, font);
+  }, [font]);
 
   return (
     <div className={`app theme-${theme}`}>
